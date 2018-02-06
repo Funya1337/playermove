@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Anytitle</title>
+    <style>
+    #guy {
+      position: absolute;
+      height: 128px;
+      width: 128px;
+      left: 0;
+      background-image: url(12.png);
+      top: 460px;
+    }
+    </style>
+  </head>
+  <body>
+    <div id="guy">
+    </div>
+<canvas id="myCanvas" width="1280" height="640">
+    <script>
+
+    var guy=document.getElementById('guy');
+    var guyLeft = 0;
+
+    function anim(e) {
+    if (e.keyCode ==39) {
+      guyLeft +=10;
+      guy.style.left = guyLeft + 'px';
+      if (guyLeft >=1180){
+        guyLeft -=10;
+      }
+    }
+    if (e.keyCode ==37) {
+      guyLeft -=10;
+      guy.style.left = guyLeft + 'px';
+      if(guyLeft <=70) {
+        guyLeft +=10;
+      }
+    }
+    // if (e.keyCode ==38) {
+    //   guyLeft +=10;
+    //   guyLeft -=10;
+    //   guy.style.top = guyLeft + 'px';
+    // }
+  }
+    document.onkeydown = anim;
+
+
+var canvas = document.getElementById('myCanvas');
+var context = canvas.getContext('2d');
+var imageObj = new Image();
+
+imageObj.onload = function() {
+  context.drawImage(imageObj, 69, 50);
+};
+imageObj.src = 'img/bg.png';
+</script>
+    </script>
+  </body>
+</html>
